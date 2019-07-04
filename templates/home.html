@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+	{% if user.is_staff or user.is_superuser %}
+		<p>Hi {{ user.username }} </p>
+		<span><p>you can add employee <a href="{% url 'add' %}">here</a></p></span>
+		<span><p>for  <a href="{% url 'table' %}"> Table view</a></p></span>
+		<span><p>for  <a href="{% url 'listv' %}"> List view</a></p></span>
+
+	{% else %}
+		<p>You are not login</p>
+		<a href="{% url 'login' %}">login</a>
+	{% endif %}
+{% endblock %}

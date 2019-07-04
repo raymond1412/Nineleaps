@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Table View{% endblock %}
+
+{% block content %}
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+      			<tr>
+        			<th>Employee Id</th>
+        			<th>Employee Name</th>
+        			<th>Designation</th>
+        			<th>Manager</th>
+        			<th>view</th>
+      			</tr>
+    		</thead>
+    		
+    		<tbody>
+    			{% for query in queryset %}
+      				<tr>
+        				<td>{{ query.id }}</td>
+        				<td>{{ query.name }}</td>
+        				<td>{{ query.designation }}</td>
+        				<td>{{ query.manager }}</td>
+        				<td><a href="{% url 'view' id=query.id %}">view</a></td>
+      				</tr>
+      			{% endfor %}
+    		</tbody>	
+		</table>
+	</div>
+	<div>
+		<a href="{% url 'home' %}">home</a>
+	</div>
+{% endblock %}

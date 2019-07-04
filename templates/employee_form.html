@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Candidate {% endblock %}
+
+{% block content %}
+	<div class="col-sm-6 col-sm-offset-3">
+		{% if messages %}
+			<ul class="messages">
+		    	{% for message in messages %}
+		    		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    	{% endfor %}
+			</ul>
+		{% endif %}
+    <form method="POST" action="" > {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn-primary btn-default" value="Add Employee"/>
+    </form>
+    <a href="{% url 'home' %}">home</a>
+    </div>
+{% endblock %}

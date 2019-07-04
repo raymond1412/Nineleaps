@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Detail {% endblock %}
+
+{% block content %}
+	<div>
+		<p>
+			<b>Employee Id : </b>{{ instance.id }}<br/>
+			<b>Employee Name : </b>{{ instance.name }}<br/>
+			<b>Employee Designation : </b>{{ instance.designation }}<br/>
+			<b>Employee Manager : </b>{{ instance.manager }}<br/>
+		</p>
+		<span><a href="{% url 'table' %}">back    </a></span>{% if instance.id != 1 %}<span><a href="{% url 'update' id=instance.id %}"> update </a></span>{% endif %}
+	</div>
+{% endblock %}

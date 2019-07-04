@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load hierarchy %}
+{% block title %} List View{% endblock %}
+{% block content %}
+	{% for unit in hierarchy %}
+   		{{ unit|hierarchy|safe }}
+ 	{% endfor %}
+{% endblock %}
